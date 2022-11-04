@@ -3,7 +3,7 @@ import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';
 import AppColors from '../../utills/AppColors';
 import CommonStyles from '../../utills/CommonStyles';
 import styles from './styles';
-
+import { width, height } from 'react-native-dimension';
 const Button = ({
   title = '? ? ?',
   onPress = () => { },
@@ -13,7 +13,8 @@ const Button = ({
   activeOpacity = 0.7,
   containerStyle = {},
   textStyle = {},
-  icon = () => { },
+  leftIcon = () => { },
+  rightIcon = () => { },
 }) => {
   return (
     <TouchableOpacity
@@ -25,6 +26,9 @@ const Button = ({
         <ActivityIndicator color={loaderColor} size="large" />
       ) : (
         <View style={CommonStyles.rowAlignItemCenter}>
+          <View style={styles.padding}>
+            {leftIcon && leftIcon()}
+          </View>
           <Text
             style={[
               styles.text,
@@ -33,7 +37,9 @@ const Button = ({
             ]}>
             {title}
           </Text>
-          {icon && icon()}
+          <View style={styles.padding}>
+            {rightIcon && rightIcon()}
+          </View>
         </View>
       )}
     </TouchableOpacity>

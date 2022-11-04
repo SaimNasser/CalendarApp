@@ -6,7 +6,10 @@ const AppColors = {
   gray: '#808080',
   gray75: '#80808075',
   gray50: '#80808050',
-  black: '#565656',
-  darkGrey: '#565656'
+  black: '#121212',
+  darkGrey: '#565656',
+  inActive: '#AAAAAA',
+  underlayGrey: '#98989880',
+  red: '#EE4B2B'
 };
 export default AppColors;

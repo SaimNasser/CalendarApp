@@ -1,6 +1,8 @@
-export const ModalTypes = {
-    CITY: 'CITY',
-    WEEKDAY: 'WEEKDAY'
+export const EventType = {
+    ALL: 'All',
+    EVENT: 'Event',
+    OUT_OF_OFFICE: 'Out of Office',
+    TASK: 'Task',
 }
 export const Fonts = {
     DancingScriptBold: 'DancingScript-Bold',

@@ -1,9 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import moment from 'moment';
-import { Cities } from '../../utills/dummydata';
 
 const initialState = {
-    selectedCity: Cities[0],
+    selectedCity: [],
     day: { name: moment().format('dddd') },
 };
 export const citySlice = createSlice({

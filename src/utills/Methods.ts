@@ -15,6 +15,9 @@
 // };
 
 
+export function randomDate(start: Date, end: Date) {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
+}
 export const capitalizeFirst = (str: string): string => {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }

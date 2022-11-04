@@ -22,29 +22,7 @@ const Header = ({
           marginBottom: Platform.OS == 'ios' ? (shadow ? 3.5 : 0) : 0,
         },
       ]}>
-      <TouchableOpacity
-        disabled={!leftIcon}
-        style={styles.cornerContainer}
-        onPress={onLeftPress}>
-        <Entypo
-          name={'chevron-left'}
-          color={leftIcon ? AppColors.black : AppColors.white}
-          size={height(3.5)}
-        />
-      </TouchableOpacity>
-      <View style={styles.titleContainer}>
         <Text style={styles.title}>{title}</Text>
-      </View>
-      <TouchableOpacity
-        disabled={!rightIcon}
-        style={styles.cornerContainer}
-        onPress={onRightPress}>
-        <Entypo
-          name={'cross'}
-          color={rightIcon ? AppColors.black : AppColors.white}
-          size={height(3.5)}
-        />
-      </TouchableOpacity>
     </View>
   );
 };
