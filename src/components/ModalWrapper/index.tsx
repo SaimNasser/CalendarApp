@@ -4,6 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Modal from 'react-native-modal';
 import AppColors from '../../utills/AppColors';
 import styles from './styles';
+
 const ModalWrapper = ({ children, isVisible, onClose, containerStyle }) => {
   return (
     <Modal
