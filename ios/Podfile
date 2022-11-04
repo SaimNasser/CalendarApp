@@ -1,7 +1,5 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
-$RNMapboxMapsImpl = 'mapbox'
-# $RNMapboxMapsVersion = '~> 10.5.0-beta1'
 
 platform :ios, '13.0'
 
@@ -24,12 +22,8 @@ target 'ReactNativeBoilerPlaceHermes' do
   # Note that if you have use_frameworks! enabled, Flipper will not work and
   # you should disable the next line.
   use_flipper!()
-  pre_install do |installer|
-    $RNMapboxMaps.pre_install(installer)
-  end
   post_install do |installer|
     react_native_post_install(installer)
-    $RNMapboxMaps.post_install(installer)
     installer.pods_project.build_configurations.each do |config|
       config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
       installer.pods_project.build_configurations.each do |config|

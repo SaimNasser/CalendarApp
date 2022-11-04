@@ -11,6 +11,4 @@ export const Fonts = {
     LobsterTwoBold: "LobsterTwo-Bold",
     LobsterTwoBoldItalic: "LobsterTwo-BoldItalic",
     LobsterTwoItalic: "LobsterTwo-Italic",
-    LobsterTwoItalic: 'LobsterTwo-Italic'
-
 }
