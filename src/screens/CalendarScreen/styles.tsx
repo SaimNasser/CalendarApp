@@ -6,5 +6,10 @@ const styles = StyleSheet.create({
     // height: height(98),
     flex: 1
   },
+  dateText: {
+    fontSize: width(3.7),
+    fontWeight: 'bold',
+    marginLeft: width(4)
+  }
 });
 export default styles;

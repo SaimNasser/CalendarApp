@@ -27,7 +27,7 @@
     "moment": "^2.29.3",
     "react": "17.0.1",
     "react-native": "0.64.2",
-    "react-native-calendars": "^1.1291.0",
+    "react-native-calendars": "^1.1289.0",
     "react-native-config": "^1.4.11",
     "react-native-dimension": "^1.0.6",
     "react-native-dotenv": "^3.3.1",
