@@ -21,6 +21,19 @@ const styles = StyleSheet.create({
   },
   flatlist: {
     width: width(100),
+  },
+  empty: {
+    height: height(20),
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  emptyText: {
+    fontSize: width(5),
+    fontWeight: 'bold'
+  },
+  padding: {
+    paddingVertical: height(1.5)
   }
 });
 export default styles;

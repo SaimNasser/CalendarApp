@@ -17,6 +17,8 @@
     "xcode": "yarn && cd ios && pod install && cd .. && xed ios"
   },
   "dependencies": {
+    "@notifee/react-native": "^5.0.4",
+    "@react-native-async-storage/async-storage": "^1.17.10",
     "@react-native-community/datetimepicker": "^3.5.2",
     "@react-native-masked-view/masked-view": "^0.2.6",
     "@react-navigation/bottom-tabs": "^5.x",
@@ -42,6 +44,7 @@
     "react-native-modal": "^11.10.0",
     "react-native-modal-datetime-picker": "^10.2.0",
     "react-native-modal-dropdown": "^1.0.2",
+    "react-native-notifications": "^4.3.2",
     "react-native-reanimated": "^1.13.2",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-screen-wrapper": "^1.0.4",

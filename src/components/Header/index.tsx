@@ -9,9 +9,7 @@ import styles from './styles';
 import { width } from 'react-native-dimension';
 const Header = ({
   title,
-  rightIcon = false,
-  leftIcon = false,
-  onRightPress = () => { },
+  back = false,
   onLeftPress = () => { },
   shadow = true,
 }) => {
@@ -23,9 +21,10 @@ const Header = ({
           marginBottom: Platform.OS == 'ios' ? (shadow ? 3.5 : 0) : 0,
         },
       ]}>
-      <TouchableOpacity onPress={onLeftPress} activeOpacity={0.5} style={styles.leftBtn}>
-        <AntDesign name={'arrowleft'} size={height(3.3)} />
-      </TouchableOpacity>
+      {back &&
+        <TouchableOpacity onPress={onLeftPress} activeOpacity={0.5} style={styles.leftBtn}>
+          <AntDesign name={'arrowleft'} size={height(3.3)} />
+        </TouchableOpacity>}
       <Text style={styles.title}>{title}</Text>
     </View>
   );

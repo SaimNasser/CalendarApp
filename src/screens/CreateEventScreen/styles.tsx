@@ -7,10 +7,8 @@ const styles = StyleSheet.create({
     flex: 1
   },
   dateText: {
-    fontSize: width(3.7),
-    fontWeight: 'bold',
-    marginLeft: width(5),
-    marginVertical: height(1.5)
+    fontSize: width(3.5),
+    color: AppColors.black
   },
   createBtn: {
     marginTop: height(2)
@@ -53,6 +51,55 @@ const styles = StyleSheet.create({
     // backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'center'
-  }
+  },
+  inputContainer: {
+    width: width(85),
+    height: height(5),
+    borderWidth: 0.75,
+    borderColor: AppColors.black,
+    alignSelf: 'center',
+    marginTop: height(1.5),
+    borderRadius: width(2),
+    flexDirection: 'row'
+  },
+  leftInputSection: {
+    borderTopLeftRadius: width(2),
+    borderBottomLeftRadius: width(2),
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRightWidth: 0.75,
+    width: '28%',
+    height: '100%',
+  },
+  rightInputSection: {
+    width: '72%',
+    height: '100%',
+    borderTopRightRadius: width(2),
+    borderBottomRightRadius: width(2),
+    alignItems: 'center',
+  },
+  selectText: {
+    color: AppColors.black,
+    fontWeight: 'bold',
+  },
+  selectBtn: {
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: width(20)
+  },
+  dateContainer: {
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%'
+  },
+  label: {
+    marginLeft: width(1),
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    marginTop: height(1.5),
+    marginBottom: height(1.5),
+  },
 });
 export default styles;

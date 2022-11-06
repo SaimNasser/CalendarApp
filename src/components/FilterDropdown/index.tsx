@@ -19,6 +19,8 @@ const FilterDropdown = ({
     setSelectedFilter,
     selectedFilter,
     options,
+    showIcon = true,
+    containerStyle = {}
 }) => {
     const renderFilterRow = (filter: string) => {
         return (
@@ -34,12 +36,12 @@ const FilterDropdown = ({
             options={options}
             dropdownStyle={styles.dropContainer}
             renderRowProps={{ underlayColor: AppColors.underlayGrey }}
-            style={{ width: '48%' }}>
+            style={[{ width: '48%' }, containerStyle]}>
             <View style={[styles.flexRow, styles.modalContainer]}>
-                <Feather
+                {showIcon && <Feather
                     name={'filter'}
                     color={AppColors.white}
-                    size={height(2)} />
+                    size={height(2)} />}
                 <Text style={styles.filterText}>{selectedFilter}</Text>
                 <Entypo
                     name={'chevron-with-circle-down'}

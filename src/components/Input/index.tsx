@@ -12,7 +12,8 @@ interface InputType extends TextInputProps {
   rules?: Object,
   inputStyle?: TextInputProps,
   numberOfLines?: number,
-  containerStyle?: Object
+  defaultValue?: string,
+  containerStyle?: Object,
 }
 
 const Input = ({
@@ -20,6 +21,7 @@ const Input = ({
   placeholder,
   placeholderTextColor,
   label,
+  defaultValue,
   rules,
   multiline,
   inputStyle = {},
@@ -32,6 +34,7 @@ const Input = ({
       control={control}
       name={label}
       rules={rules}
+      defaultValue={defaultValue}
       render={({ field: { onChange, value, onBlur }, fieldState: { error } }) => (
         <View style={[styles.container, containerStyle]}>
           {label && label != '' && <Text style={[styles.label, { color: error ? AppColors.red : AppColors.black }]}>{label}</Text>}
