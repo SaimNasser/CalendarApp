@@ -63,7 +63,7 @@ export default function CalendarScreen({ navigation, route }) {
             todayBackgroundColor: AppColors.white,
           }}
         />
-        {selectedDate != '' && <Text style={styles.dateText}>Events on {moment(selectedDate, 'YYYY-MM-DD').format('D MMM YYYY')}</Text>}
+          {selectedDate != '' && <Text style={styles.dateText}>Events on {moment(selectedDate, 'YYYY-MM-DD').format('D MMM YYYY')}</Text>}
         <FlashList
           data={events}
           renderItem={renderEvent}

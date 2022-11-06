@@ -24,5 +24,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  leftBtn: {
+    height: '100%',
+    width: width(12),
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
 });
 export default styles;

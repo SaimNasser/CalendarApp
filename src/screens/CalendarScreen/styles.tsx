@@ -9,7 +9,9 @@ const styles = StyleSheet.create({
   dateText: {
     fontSize: width(3.7),
     fontWeight: 'bold',
-    marginLeft: width(4)
-  }
+    marginLeft: width(5),
+    marginVertical: height(1.5)
+  },
+
 });
 export default styles;

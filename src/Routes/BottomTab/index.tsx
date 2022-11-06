@@ -9,7 +9,7 @@ import { width, height } from 'react-native-dimension'
 const Tab = createBottomTabNavigator();
 
 const BottomTabs = () => {
-
+    
     return (
         <Tab.Navigator
             tabBarOptions={{

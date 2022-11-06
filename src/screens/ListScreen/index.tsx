@@ -38,6 +38,7 @@ export default function ListScreen({ navigation, route }) {
             setSelectedFilter={setSelectedFilter} />
           <Button
             title='Create Event'
+            onPress={() => navigation.navigate('CreateEventScreen')}
             containerStyle={styles.titleBtns}
             leftIcon={() =>
               <AntDesign
