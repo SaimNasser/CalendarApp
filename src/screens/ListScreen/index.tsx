@@ -45,7 +45,7 @@ export default function ListScreen({ navigation, route }) {
     if (lastIndex === -1) return
     getAllEventsFromStorage(selectedFilter, lastIndex)
       .then((response) => {
-        const newEvents = response?.data
+        const newEvents: EventTypee[] | undefined = response?.data
         setLastIndex(response?.lastIndex)
         setEvents([...events, ...newEvents])
       })

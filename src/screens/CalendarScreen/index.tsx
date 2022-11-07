@@ -3,12 +3,14 @@ import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
 import { Calendar } from 'react-native-calendars';
-import EventCard, { EventCardType } from '../../components/EventCard';
+import EventCard from '../../components/EventCard';
 import Header from '../../components/Header';
 import ScreenWrapper from '../../components/ScreenWrapper';
 import AppColors from '../../utills/AppColors';
 import { eventList } from '../../utills/dummydata';
 import styles from './styles';
+import { EventTypee } from '../../utills/Types'
+import { getEventByDate } from '../../utills/Methods';
 
 interface CalendarDateObj {
   dateString: string,
@@ -19,10 +21,10 @@ interface CalendarDateObj {
 }
 export default function CalendarScreen({ navigation, route }) {
   const [markedDates, setMarkedDates] = useState<any>({
-    [moment().format('YYYY-MM-DD')]: { marked: true, dotColor: AppColors.black }
+   
   })
   const [selectedDate, setSelectedDate] = useState<string>('')
-  const [events, setEvents] = useState<Array<EventCardType>>([])
+  const [events, setEvents] = useState<EventTypee[] | undefined>([])
 
   const renderEvent = ({ item }) => {
     return (
@@ -31,10 +33,16 @@ export default function CalendarScreen({ navigation, route }) {
   }
 
   useEffect(() => {
-    const eventsOnDate = eventList.filter(item => item.date == selectedDate)
-    setEvents(eventsOnDate)
+    if (selectedDate)
+      getEventByDate(selectedDate)
+        .then((response) => {
+          setEvents(response)
+        })
   }, [selectedDate])
-
+  const renderEmpty = () =>
+    <View style={styles.empty}>
+      <Text style={styles.emptyText}>No events</Text>
+    </View>
   const onDayPress = (date: CalendarDateObj) => {
     setMarkedDates({
       [date.dateString]: { selected: true, selectedColor: AppColors.black },
@@ -63,11 +71,12 @@ export default function CalendarScreen({ navigation, route }) {
             todayBackgroundColor: AppColors.white,
           }}
         />
-          {selectedDate != '' && <Text style={styles.dateText}>Events on {moment(selectedDate, 'YYYY-MM-DD').format('D MMM YYYY')}</Text>}
+        {selectedDate != '' && <Text style={styles.dateText}>Events on {moment(selectedDate, 'YYYY-MM-DD').format('D MMM YYYY')}</Text>}
         <FlashList
           data={events}
           renderItem={renderEvent}
-          estimatedItemSize={10}
+          ListEmptyComponent={renderEmpty}
+          estimatedItemSize={100}
         />
       </View>
     </ScreenWrapper>

@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { showMessage } from 'react-native-flash-message';
-import notifee, { TimestampTrigger, TriggerType } from '@notifee/react-native';
+import notifee, { AndroidImportance, AndroidLaunchActivityFlag, TimestampTrigger, TriggerType } from '@notifee/react-native';
 import moment from 'moment';
 import { File, EventTypee } from '../utills/Types';
 import { EventType } from './Enums';
@@ -94,7 +94,7 @@ export const editEvent = async (triggerId: string, newEvent: EventTypee) => {
 }
 export const getAllEventsFromStorage = async (filter = EventType.ALL, lastIndex = 0) => {
     try {
-        let eventsArray: Array<EventTypee> = []
+        let eventsArray: EventTypee[] = []
         const eventsString = await AsyncStorage.getItem('events')
         if (eventsString)
             eventsArray = JSON.parse(eventsString)
@@ -107,6 +107,21 @@ export const getAllEventsFromStorage = async (filter = EventType.ALL, lastIndex 
             lastIndex: lastIndex >= eventsArray.length ? -1 : lastIndex + 4
         }
 
+    } catch (error) {
+        console.log(error)
+    }
+}
+export const getEventByDate = async (date: string) => {
+    try {
+        let eventsArray: Array<EventTypee> = []
+        const eventsString = await AsyncStorage.getItem('events')
+        if (eventsString)
+            eventsArray = JSON.parse(eventsString)
+
+        //filtering by date
+        eventsArray = eventsArray.filter(event => moment(event.timeStamp).format('YYYY-MM-DD') === date)
+
+        return eventsArray || []
     } catch (error) {
         console.log(error)
     }
@@ -147,18 +162,23 @@ export const createEventTrigger = async (eventName: string, timestamp: string) =
         const trigger: TimestampTrigger = {
             type: TriggerType.TIMESTAMP,
             timestamp: moment(timestamp).subtract(10, 'minutes').valueOf(),
-            alarmManager: {
-                allowWhileIdle: true,
-            },
+            alarmManager: true,
         };
 
         // Create a trigger notification
         const id = await notifee.createTriggerNotification(
             {
                 title: `${eventName} starts in 10 mins`,
+
                 body: `Today at ${moment(timestamp).format('hh:mm a')}`,
                 android: {
-                    channelId: 'your-channel-id',
+                    channelId: 'default',
+                    importance: AndroidImportance.HIGH,
+                    pressAction: {
+                        id: 'default',
+                        launchActivity: 'default',
+                        launchActivityFlags: [AndroidLaunchActivityFlag.SINGLE_TOP],
+                    }
                 },
             },
             trigger,

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1078803200962",
+    "project_id": "calendar-e88cc",
+    "storage_bucket": "calendar-e88cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078803200962:android:c275b749a6bd8a85fdf45b",
+        "android_client_info": {
+          "package_name": "com.reactnativeboilerplacehermes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078803200962-2g2qbhjm6fv683am28slv8snforqg94f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoubocWHiAE57gXNTXoElSAEGvE9SAl9g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078803200962-2g2qbhjm6fv683am28slv8snforqg94f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
