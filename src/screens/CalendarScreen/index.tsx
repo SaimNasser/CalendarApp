@@ -7,7 +7,6 @@ import EventCard from '../../components/EventCard';
 import Header from '../../components/Header';
 import ScreenWrapper from '../../components/ScreenWrapper';
 import AppColors from '../../utills/AppColors';
-import { eventList } from '../../utills/dummydata';
 import styles from './styles';
 import { EventTypee } from '../../utills/Types'
 import { getEventByDate } from '../../utills/Methods';

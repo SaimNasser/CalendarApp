@@ -164,7 +164,10 @@ export const createEventTrigger = async (eventName: string, timestamp: string) =
             timestamp: moment(timestamp).subtract(10, 'minutes').valueOf(),
             alarmManager: true,
         };
-
+        const channelId = await notifee.createChannel({
+            id: 'default',
+            name: 'Default Channel',
+        });
         // Create a trigger notification
         const id = await notifee.createTriggerNotification(
             {
@@ -172,13 +175,7 @@ export const createEventTrigger = async (eventName: string, timestamp: string) =
 
                 body: `Today at ${moment(timestamp).format('hh:mm a')}`,
                 android: {
-                    channelId: 'default',
-                    importance: AndroidImportance.HIGH,
-                    pressAction: {
-                        id: 'default',
-                        launchActivity: 'default',
-                        launchActivityFlags: [AndroidLaunchActivityFlag.SINGLE_TOP],
-                    }
+                    channelId: channelId,
                 },
             },
             trigger,

@@ -1,14 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
-import { openWeatherApi } from '../backend/Services';
-import cityReducer from './features/citySlice';
+import eventReducer from './features/EventsSlice';
 
 export const store = configureStore({
   reducer: {
-    City: cityReducer,
-    [openWeatherApi.reducerPath]: openWeatherApi.reducer
+    Event: eventReducer,
   },
-  middleware: (curryGetDefaultMiddleware) =>
-    curryGetDefaultMiddleware().concat(openWeatherApi.middleware)
+  // middleware: (curryGetDefaultMiddleware) =>
+  //   curryGetDefaultMiddleware().concat(openWeatherApi.middleware)
 });
-setupListeners(store.dispatch)

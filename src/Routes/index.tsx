@@ -5,7 +5,6 @@ import SplashScreen from 'react-native-splash-screen';
 import BottomTabs from './BottomTab/index';
 import CreateEventScreen from '../screens/CreateEventScreen';
 import notifee from '@notifee/react-native';
-import messaging from '@react-native-firebase/messaging';
 
 
 
